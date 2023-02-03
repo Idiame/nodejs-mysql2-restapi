@@ -1,18 +1,14 @@
 // const { application } = require('express');
 const express = require('express');
 const router = express.Router();
-const pool = require('../db');
+
 const employeesRouter = require('./employees')
+const {ping, index} = require("../controllers/indes.controller")
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.send('hola mundo');
-});
+router.get('/', index);
 
-router.get('/ping', async(req, res, next) =>{
-  const [result] = await pool.query('SELECT 1+1 AS result;')
-  res.json(result[0]);
-});
+router.get('/ping', ping);
 
 router.use(employeesRouter)
 
