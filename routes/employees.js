@@ -7,8 +7,8 @@ const {getEmployees, getEmployee,   createEmployee, updateEmployee, deleteEmploy
 
   router.post('/employees', createEmployee);
 
-  router.put('/employees', updateEmployee);
+  router.patch('/employees/:id', updateEmployee);
 
-  router.delete('/employees', deleteEmployee);
+  router.delete('/employees/:id', deleteEmployee);
 
   module.exports = router;  
